@@ -2,8 +2,10 @@ services:
   - type: web
     name: fantasy-manager
     runtime: node
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: npm install && npm run build
+    startCommand: node server/server.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=460
