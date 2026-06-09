@@ -28,7 +28,7 @@ export class MatchdayPrepScene extends Phaser.Scene {
       this.redraw();
     }));
     this.unsubs.push(SocketClient.on('matchday_results', d => {
-      this.scene.start('MatchScene', { results: d });
+      this.scene.start('MatchScene', d);
     }));
     this.unsubs.push(SocketClient.on('private_state', ps => {
       this.localLineup = [...(ps.lineup ?? [])];
